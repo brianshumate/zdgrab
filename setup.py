@@ -3,6 +3,10 @@ import sys, os
 
 version = "1.0"
 
+extra = {}
+if sys.version_info >= (3,):
+    extra['use_2to3'] = True
+
 setup(name="zdgrab",
       version=version,
       scripts=["bin/zdgrab", "bin/zdsplode"],
@@ -24,5 +28,6 @@ setup(name="zdgrab",
       install_requires=[
         "configparser",
         "zendesk",
-      ]
+      ],
+      **extra
 )
