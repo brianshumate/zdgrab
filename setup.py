@@ -3,9 +3,13 @@ import sys, os
 
 version = "1.0"
 
+ir = ["zendesk"]
+
 extra = {}
 if sys.version_info >= (3,):
     extra['use_2to3'] = True
+else:
+    ir.append("configparser")
 
 setup(name="zdgrab",
       version=version,
@@ -25,9 +29,6 @@ setup(name="zdgrab",
       packages=find_packages(exclude=["ez_setup", "examples", "tests"]),
       include_package_data=True,
       zip_safe=False,
-      install_requires=[
-        "configparser",
-        "zendesk",
-      ],
+      install_requires=ir,
       **extra
 )
